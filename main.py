@@ -188,11 +188,11 @@ level = gmdkit.Level.from_file("empty_level.gmd")
 object_list = level.objects
 
 import_data = 0
-level_data = []
-
+level_data = [[]]
 coins = 0
+tags = []
 
-# Find lines in the level that define layers
+# Turn the level into a list of objects
 for i in range(len(file_list)):
 	if "<layer" in file_list[i]:
 		for j in range(len(file_list[i])):
@@ -218,29 +218,63 @@ for i in range(len(file_list)):
 	
 	if import_data == 1:
 		if "</data" in file_list[i]:
-			for j in range(len(level_data)):
-				if level_data[j] in fd_values.object_list:
-					for k in fd_values.object_list[level_data[j]]:
-						object_used = copy.deepcopy(k)
-						if not "X" in object_used:
-							object_used["X"] = 0
-						if not "Y" in object_used:
-							object_used["Y"] = 0
-						object_used["X"] += j % width * 30 + 15
-						object_used["Y"] += (height - j // width) * 30 - 15
-						if level_data[j] > 256:
-							for l in object_offsets:
-								if l["cx"] == j % width and l["cy"] == j // width:
-									object_used["X"] += l["ox"] * 15 / 8
-									object_used["Y"] -= l["oy"] * 15 / 8
+			for j in range(len(level_data[-1])):
+				if level_data[-1][j] in fd_values.object_list:
+					for k in fd_values.object_list[level_data[-1][j]]:
+						if "tags" in k:
+							for l in k["tags"]:
+								tags.append(l)
+						else:
 
-						# Add 1 to coin count if object is coin
-						if object_used["ID"] == 1329:
-							coins += 1
+							# Add 1 to coin count if object is coin
+							if k["ID"] == 1329:
+								coins += 1
+			level_data[-1].append(width)
+			level_data[-1].append(height)
+			level_data.append([])
+			import_data = 0
+		else:
+			level_data[-1].append("")
+			for j in file_list[i]:
+				if j == ",":
+					level_data[-1][-1] = int(level_data[-1][-1])
+					level_data[-1].append("")
+				else:
+					level_data[-1][-1] += j
+			if level_data[-1][-1] == "":
+				level_data[-1].pop()
+			else:
+				level_data[-1][-1] = int(level_data[-1][-1])
 
-						# Turn string properties into number properties
-						object_to_add = {}
-						for l in object_used:
+	if "<data" in file_list[i]:
+		import_data = 1
+
+# Replace objects if tags are present
+fd_values.replace_tag(tags)
+
+# Build the level
+for i in range(len(level_data)):
+	for j in range(len(level_data[i]) - 2):
+		if level_data[i][j] in fd_values.object_list:
+			for k in fd_values.object_list[level_data[i][j]]:
+				object_used = copy.deepcopy(k)
+				if not "tags" in object_used:
+					if not "X" in object_used:
+						object_used["X"] = 0
+					if not "Y" in object_used:
+						object_used["Y"] = 0
+					object_used["X"] += float(j % level_data[i][-2] * 30 + 15)
+					object_used["Y"] += float((level_data[i][-1] - j // level_data[i][-2]) * 30 - 15)
+					if level_data[i][j] > 256:
+						for l in object_offsets:
+							if l["cx"] == j % level_data[i][-2] and l["cy"] == j // level_data[i][-2]:
+								object_used["X"] += l["ox"] * 15 / 8
+								object_used["Y"] -= l["oy"] * 15 / 8
+
+					# Turn string properties into number properties
+					object_to_add = {}
+					for l in object_used:
+						if not l == "don't repeat":
 
 							# Add X position times 10 if property is group
 							if type(l) == str and getattr(gmdkit.mappings.obj_prop, l) in {51, 57} or l in {51, 57}:
@@ -256,25 +290,8 @@ for i in range(len(file_list)):
 								object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = gmdkit.models.prop.list.IDList(object_used[l])
 							else:
 								object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = object_used[l]
+					if not ("don't repeat" in object_used and object_used["don't repeat"] and gmdkit.Object(object_to_add) in object_list):
 						object_list.append(gmdkit.Object(object_to_add))
-
-			level_data = []
-			import_data = 0
-		else:
-			level_data.append("")
-			for j in file_list[i]:
-				if j == ",":
-					level_data[-1] = int(level_data[-1])
-					level_data.append("")
-				else:
-					level_data[-1] += j
-			if level_data[-1] == "":
-				level_data.pop()
-			else:
-				level_data[-1] = int(level_data[-1])
-
-	if "<data" in file_list[i]:
-		import_data = 1
 
 # Change the song of the level
 if song in fd_values.song_list:
