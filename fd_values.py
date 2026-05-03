@@ -51,13 +51,17 @@ color_list = {
 # Objects in Famidash, excluding color triggers. Numbers from 1 to 256 refer to tiles, while numbers from 257 to 512 refer to sprites.
 object_list = {
 	# Tiles
-	2: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
+	2: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}],
 	3: [{"ID": 1, "HIDE": True}, {"ID": 211, "COLOR_1": gmdkit.mappings.color_id.GROUND}],
 	4: [{"ID": 1903, "Y": -8, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
-	6: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
+	5: [{"ID": 1707, "Y": -15, "don't repeat": True}],
+	6: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}],
 	7: [{"ID": 1, "HIDE": True}, {"ID": 211, "COLOR_1": gmdkit.mappings.color_id.GROUND}],
 	8: [{"ID": 1, "COLOR_1": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True}],
-	9: [{"ID": 1706, "X": 15, "Y": -15}], 
+	9: [{"ID": 1706, "X": 15, "Y": -15, "don't repeat": True}],
+	10: [{"ID": 1706, "X": -15, "Y": -15, "don't repeat": True}],
+	11: [{"ID": 1706, "X": 15, "Y": 15, "don't repeat": True}],
+	12: [{"ID": 1706, "X": -15, "Y": 15, "don't repeat": True}],
 	13: [{"ID": 21, "Y": -8}, {"ID": 1715, "Y": -12.5}],
 	14: [{"ID": 21, "Y": 8, "ROTATION": 180}, {"ID": 1715, "Y": 12.5, "ROTATION": 180}],
 	15: [{"ID": 21, "X": -8, "ROTATION": 90}, {"ID": 39, "X": -9, "ROTATION": 90}],
@@ -166,35 +170,51 @@ object_list = {
 	114: [{"ID": 95, "ROTATION": 90}],
 	115: [{"ID": 95, "ROTATION": 180}],
 	116: [{"ID": 95, "ROTATION": -90}],
-	117: [{"ID": 1705, "X": 30, "Y": -30}],
+	117: [{"ID": 1705, "X": 30, "Y": -30, "don't repeat": True}],
+	118: [{"ID": 1705, "Y": -30, "don't repeat": True}],
+	119: [{"ID": 1705, "X": -30, "Y": -30, "don't repeat": True}],
+	120: [{"ID": 1705, "X": 30, "don't repeat": True}],
+	122: [{"ID": 1705, "X": -30, "don't repeat": True}],
+	123: [{"ID": 1705, "X": 30, "Y": 30, "don't repeat": True}],
+	124: [{"ID": 1705, "Y": 30, "don't repeat": True}],
+	125: [{"ID": 1705, "X": -30, "Y": 30, "don't repeat": True}],
 	126: [{"ID": 1707}],
 	127: [{"ID": 76}],
-	128: [{"ID": 1707, "Y": -15}],
+	128: [{"ID": 1707, "Y": -15, "don't repeat": True}],
 
 	129: [{"ID": 49, "Y": -32}],
 	130: [{"ID": 49, "Y": 32, "ROTATION": 180}],
 	131: [{"ID": 1715, "Y": 12.5, "ROTATION": 180}, {"ID": 1719, "Y": -11}],
 	132: [{"ID": 1715, "Y": -12.5}, {"ID": 1719, "Y": 11, "FLIP_Y": True}],
-	137: [{"ID": 208, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
-	138: [{"ID": 208, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
-	139: [{"ID": 76, "X": 15}],
-	140: [{"ID": 1719, "X": 15}],
-	141: [{"ID": 76, "X": 15}],
+	137: [{"ID": 208, "COLOR_2": gmdkit.mappings.color_id.GROUND}],
+	138: [{"ID": 208, "COLOR_2": gmdkit.mappings.color_id.GROUND}],
+	139: [{"ID": 76, "X": 15, "don't repeat": True}, {"ID": 1719, "X": -15, "don't repeat": True}],
+	140: [{"ID": 76, "X": -15, "don't repeat": True}, {"ID": 1719, "X": 15, "don't repeat": True}],
+	141: [{"ID": 76, "X": 15, "don't repeat": True}],
+	142: [{"ID": 76, "X": -15, "don't repeat": True}],
 	144: [{"ID": 1, "HIDE": True}, {"ID": 5}],
 
 	145: [{"ID": 1743}],
 	146: [{"ID": 1743, "ROTATION": 90}],
 	147: [{"ID": 1743, "ROTATION": -90}],
 	148: [{"ID": 1743, "ROTATION": 180}],
-	149: [{"ID": 1744, "X": 15}],
-	152: [{"ID": 1744, "X": -15, "FLIP_X": True}],
-	153: [{"ID": 1744, "X": 15, "FLIP_Y": True}],
-	156: [{"ID": 1744, "X": -15, "ROTATION": 180}],
-	157: [{"ID": 1744, "Y": -15, "FLIP_X": True, "ROTATION": -90}],
-	160: [{"ID": 1744, "Y": -15, "ROTATION": 90}],
+	149: [{"ID": 1744, "X": 15, "don't repeat": True}],
+	150: [{"ID": 1744, "X": -15, "don't repeat": True}],
+	151: [{"ID": 1744, "X": 15, "FLIP_X": True, "don't repeat": True}],
+	152: [{"ID": 1744, "X": -15, "FLIP_X": True, "don't repeat": True}],
+	153: [{"ID": 1744, "X": 15, "FLIP_Y": True, "don't repeat": True}],
+	154: [{"ID": 1744, "X": -15, "FLIP_Y": True, "don't repeat": True}],
+	155: [{"ID": 1744, "X": 15, "ROTATION": 180, "don't repeat": True}],
+	156: [{"ID": 1744, "X": -15, "ROTATION": 180, "don't repeat": True}],
+	157: [{"ID": 1744, "Y": -15, "FLIP_X": True, "ROTATION": -90, "don't repeat": True}],
+	158: [{"ID": 1744, "Y": 15, "FLIP_X": True, "ROTATION": -90, "don't repeat": True}],
+	159: [{"ID": 1744, "Y": 15, "ROTATION": 90, "don't repeat": True}],
+	160: [{"ID": 1744, "Y": -15, "ROTATION": 90, "don't repeat": True}],
 
-	161: [{"ID": 1744, "Y": 15, "ROTATION": -90}],
-	164: [{"ID": 1744, "Y": 15, "FLIP_X": True, "ROTATION": 90}],
+	161: [{"ID": 1744, "Y": 15, "ROTATION": -90, "don't repeat": True}],
+	162: [{"ID": 1744, "Y": -15, "ROTATION": -90, "don't repeat": True}],
+	163: [{"ID": 1744, "Y": -15, "FLIP_X": True, "ROTATION": 90, "don't repeat": True}],
+	164: [{"ID": 1744, "Y": 15, "FLIP_X": True, "ROTATION": 90, "don't repeat": True}],
 	165: [{"ID": 1, "HIDE": True}, {"ID": 502}],
 	166: [{"ID": 1, "HIDE": True}, {"ID": 502, "ROTATION": 90}],
 	167: [{"ID": 1, "HIDE": True}, {"ID": 502, "ROTATION": 180}],
@@ -249,7 +269,8 @@ object_list = {
 	213: [{"ID": 5}, {"ID": 215, "Y": 8, "COLOR_1": gmdkit.mappings.color_id.BLACK, "COLOR_2": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True}],
 	214: [{"ID": 5}, {"ID": 215, "Y": 8, "COLOR_1": gmdkit.mappings.color_id.BLACK, "COLOR_2": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True}, {"ID": 215, "X": 8, "ROTATION": 90, "COLOR_1": gmdkit.mappings.color_id.BLACK, "COLOR_2": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True}],
 	215: [{"ID": 5}, {"ID": 215, "X": 8, "ROTATION": 90, "COLOR_1": gmdkit.mappings.color_id.BLACK, "COLOR_2": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True}],
-	216: [{"ID": 1744, "X": 15, "COLOR_2": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True}],
+	216: [{"ID": 1744, "X": 15, "COLOR_2": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True, "don't repeat": True}],
+	217: [{"ID": 1744, "X": -15, "COLOR_2": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True, "don't repeat": True}],
 	218: [{"ID": 8}],
 	219: [{"ID": 8}],
 	220: [{"ID": 8, "ROTATION": 180}],
@@ -267,13 +288,18 @@ object_list = {
 	231: [{"ID": 1}],
 	232: [{"ID": 1}],
 
-	241: [{"ID": 39, "X": 15, "Y": -9}],
-	243: [{"ID": 39, "X": 15, "Y": 9, "ROTATION": 180}],
-	245: [{"ID": 8, "X": 15}],
-	247: [{"ID": 8, "X": 15}],
-	248: [{"ID": 69, "X": 15}],
-	250: [{"ID": 8, "X": 15, "ROTATION": 180}],
-	252: [{"ID": 8, "X": 15, "ROTATION": 180}],
+	241: [{"ID": 39, "X": 15, "Y": -9, "don't repeat": True}],
+	242: [{"ID": 39, "X": -15, "Y": -9, "don't repeat": True}],
+	243: [{"ID": 39, "X": 15, "Y": 9, "ROTATION": 180, "don't repeat": True}],
+	244: [{"ID": 39, "X": -15, "Y": 9, "ROTATION": 180, "don't repeat": True}],
+	245: [{"ID": 8, "X": 15, "don't repeat": True}],
+	246: [{"ID": 8, "X": -15, "don't repeat": True}],
+	247: [{"ID": 8, "X": -15, "don't repeat": True}, {"ID": 8, "X": 15, "don't repeat": True}],
+	248: [{"ID": 69, "X": 15, "don't repeat": True}],
+	249: [{"ID": 69, "X": -15, "don't repeat": True}],
+	250: [{"ID": 8, "X": 15, "ROTATION": 180, "don't repeat": True}],
+	251: [{"ID": 8, "X": -15, "ROTATION": 180, "don't repeat": True}],
+	252: [{"ID": 8, "X": -15, "ROTATION": 180, "don't repeat": True}, {"ID": 8, "X": 15, "ROTATION": 180, "don't repeat": True}],
 	253: [{"ID": 1, "HIDE": True}],
 	254: [{"ID": 3, "ROTATION": 90}],
 	255: [{"ID": 1910, "X": 7.5, "Y": -7.5, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
@@ -315,7 +341,7 @@ object_list = {
 	290: [{"ID": 1334, "Y": -15}],
 	291: [{"ID": 286, "Y": -30, 111: True}],
 	292: [{"ID": 287, "Y": -30, 111: True}],
-	293: [{"ID": 660, "Y": -30, 111: True}],
+	293: [{"ID": 660, "Y": -30, 111: True}, {"tags": ["wave"]}],
 	294: [{"ID": 140, "Y": -13}],
 	295: [{"ID": 140, "Y": 13, "ROTATION": 180}],
 	296: [{"ID": 1022}],
@@ -366,8 +392,9 @@ object_list = {
 	342: [{"ID": 3004, "ROTATION": 180}],
 	343: [{"ID": 3005, "Y": -12}],
 	344: [{"ID": 3005, "Y": 12, "ROTATION": 180}],
-	346: [{"ID": 3027, "HSV_2": gmdkit.models.prop.hsv.HSV(180, 1, 1, True, False), 51: 2, 352: 1}],
-	347: [{"ID": 3027, "HSV_2": gmdkit.models.prop.hsv.HSV(60, 1, 1, True, False), "GROUPS": [2]}],
+	# 345: [{"ID": 12, "Y": -30}, {"tags": ["ninja"]}], # Ninja portal, incomplete
+	346: [{"ID": 3027, "COLOR_2": 1, 51: 2, 352: 1}],
+	347: [{"ID": 3027, "COLOR_2": 2, "GROUPS": [2]}],
 	348: [{"ID": 1704, "ROTATION": -90}],
 	349: [{"ID": 1751, "ROTATION": -90}],
 	350: [{"ID": 1704, "ROTATION": 90}],
@@ -447,6 +474,21 @@ def replace_set(Type, Set):
 		if Set == "B":
 			for i in block_set_b:
 				object_list[i] = block_set_b[i]
+
+# Replaced blocks with different tags
+tag_replace = {
+	"wave": {
+		2: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
+		6: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
+		137: [{"ID": 208, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
+		138: [{"ID": 208, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}]
+	}
+}
+
+def replace_tag(tags):
+	for i in tags:
+		for j in tag_replace[i]:
+			object_list[j] = tag_replace[i][j]
 
 # Add color triggers to object_list
 for i in color_list:
@@ -595,7 +637,23 @@ song_list = {
 	"song_chaoz_impact": 152047,
 	"song_accelerate": 576177,
 	"song_the_angel": 888042,
-	
+
+	# Spinoff songs, reserved for future
+	"song_the_seven_seas": 1271751,
+	"song_viking_arena": 1271748,
+	"song_airborne_robots": 1138716,
+	"song_payload": 589289,
+	"song_beast_mode": 589874,
+	"song_machina": 582310,
+	"song_years": 582980,
+	"song_frontlines": 614535,
+	"song_space_pirates": 57239,
+	"song_striker": 711933,
+	"song_embers": 691000,
+	"song_round_1": 585138,
+	"song_monster_dance_off": 1156474,
+	"song_press_start": 10007241,
+	"song_nock_em": 782870
 }
 
 # Gamemode portal IDs that exists in Geometry Dash in Famidash. Currently not used.
