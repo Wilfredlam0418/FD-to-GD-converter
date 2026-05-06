@@ -578,6 +578,8 @@ song_list = {
 	# Custom songs in C sides
 	# "song_ground_to_retray": ?,/
 	# "song_c_madness": ?,
+	"song_load": 118361938,
+	"song_unity": 621134,
 	"song_hungryman_adventures": 479319, # NONG, requires Jukebox
 	"song_astronomical_expedition": 1542334, # Not allowed, likely unavailable in Jukebox
 	"song_deep_swim": 1017659,
