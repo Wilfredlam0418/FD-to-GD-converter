@@ -12,8 +12,11 @@ if not file_name[-4:] == ".tmx":
 	file_name += ".tmx"
 
 # Copy file level
-with open(file_name) as f:
-	file = f.read()
+try:
+	with open(file_name) as f:
+		file = f.read()
+except FileNotFoundError:
+	raise SystemExit("The file does not exist! Check the spelling of the file.")
 
 # Turn file into list with multiple lines
 file_list = [""]
@@ -28,8 +31,11 @@ if not meta_name[-6:] == ".json5":
 	meta_name += ".json5"
 
 # Copy file metadata
-with open(meta_name) as f:
-	meta = f.read()
+try:
+	with open(meta_name) as f:
+		meta = f.read()
+except FileNotFoundError:
+	raise SystemExit("The file does not exist! Check the spelling of the file.")
 
 # Turn file into list with multiple lines
 meta_list = [""]
@@ -223,7 +229,8 @@ for i in range(len(file_list)):
 					for k in fd_values.object_list[level_data[-1][j]]:
 						if "tags" in k:
 							for l in k["tags"]:
-								tags.append(l)
+								if not l in tags:
+									tags.append(l)
 						else:
 
 							# Add 1 to coin count if object is coin
@@ -249,8 +256,54 @@ for i in range(len(file_list)):
 	if "<data" in file_list[i]:
 		import_data = 1
 
-# Replace objects if tags are present
-fd_values.replace_tag(tags)
+# Place object function
+def place_object(object_used, modify_coordinates, modify_properties):
+	if modify_coordinates:
+		if not "X" in object_used:
+			object_used["X"] = 0
+		if not "Y" in object_used:
+			object_used["Y"] = 0
+		object_used["X"] += float(j % level_data[i][-2] * 30 + 15)
+		object_used["Y"] += float((level_data[i][-1] - j // level_data[i][-2]) * 30 - 15)
+		if level_data[i][j] > 256:
+			for l in object_offsets:
+				if l["cx"] == j % level_data[i][-2] and l["cy"] == j // level_data[i][-2]:
+					object_used["X"] += l["ox"] * 15 / 8
+					object_used["Y"] -= l["oy"] * 15 / 8
+
+	# Turn string properties into number properties
+	object_to_add = {}
+	for l in object_used:
+		if not (l == "don't repeat" or l == "don't modify"):
+
+			# Add X position times 10 if property is group
+			if modify_properties:
+				if type(l) == str and getattr(gmdkit.mappings.obj_prop, l) in {51, 57} or l in {51, 57}:
+					if type(object_used[l]) == list:
+						for m in range(len(object_used[l])):
+							object_used[l][m] += j % width * 10
+					else:
+						object_used[l] += j % width * 10
+
+			if type(l) == int:
+				object_to_add[l] = object_used[l]
+			elif getattr(gmdkit.mappings.obj_prop, l) == 57:
+				object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = gmdkit.models.prop.list.IDList(object_used[l])
+			else:
+				object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = object_used[l]
+	if not ("don't repeat" in object_used and object_used["don't repeat"] and gmdkit.Object(object_to_add) in object_list):
+		object_list.append(gmdkit.Object(object_to_add))
+
+for i in tags:
+	# Replace objects if tags are present
+	if i in fd_values.tag_replace:
+		for j in fd_values.tag_replace[i]:
+			fd_values.object_list[j] = fd_values.tag_replace[i][j]
+
+	# Add objects if tags are present
+	if i in fd_values.tag_add:
+		for j in fd_values.tag_add[i]:
+			place_object(j, False, False)
 
 # Build the level
 for i in range(len(level_data)):
@@ -259,39 +312,7 @@ for i in range(len(level_data)):
 			for k in fd_values.object_list[level_data[i][j]]:
 				object_used = copy.deepcopy(k)
 				if not "tags" in object_used:
-					if not "X" in object_used:
-						object_used["X"] = 0
-					if not "Y" in object_used:
-						object_used["Y"] = 0
-					object_used["X"] += float(j % level_data[i][-2] * 30 + 15)
-					object_used["Y"] += float((level_data[i][-1] - j // level_data[i][-2]) * 30 - 15)
-					if level_data[i][j] > 256:
-						for l in object_offsets:
-							if l["cx"] == j % level_data[i][-2] and l["cy"] == j // level_data[i][-2]:
-								object_used["X"] += l["ox"] * 15 / 8
-								object_used["Y"] -= l["oy"] * 15 / 8
-
-					# Turn string properties into number properties
-					object_to_add = {}
-					for l in object_used:
-						if not l == "don't repeat":
-
-							# Add X position times 10 if property is group
-							if type(l) == str and getattr(gmdkit.mappings.obj_prop, l) in {51, 57} or l in {51, 57}:
-								if type(object_used[l]) == list:
-									for m in range(len(object_used[l])):
-										object_used[l][m] += j % width * 10
-								else:
-									object_used[l] += j % width * 10
-
-							if type(l) == int:
-								object_to_add[l] = object_used[l]
-							elif getattr(gmdkit.mappings.obj_prop, l) == 57:
-								object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = gmdkit.models.prop.list.IDList(object_used[l])
-							else:
-								object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = object_used[l]
-					if not ("don't repeat" in object_used and object_used["don't repeat"] and gmdkit.Object(object_to_add) in object_list):
-						object_list.append(gmdkit.Object(object_to_add))
+					place_object(object_used, True, not ("don't modify" in object_used and object_used["don't modify"]))
 
 # Change the song of the level
 if song in fd_values.song_list:
