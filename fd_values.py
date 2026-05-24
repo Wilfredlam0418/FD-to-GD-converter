@@ -357,11 +357,11 @@ object_list = {
 	305: [{"ID": 21, "Y": -8}],
 	306: [{"ID": 21, "Y": 8, "ROTATION": 180}],
 	307: [{"ID": 53, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1}],
-	308: [{"ID": 494, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1, "SCALE_X": 0.707, "SCALE_Y": 0.707}],
-	309: [{"ID": 136, "SCALE_X": 0.707, "SCALE_Y": 0.707}],
-	310: [{"ID": 133, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1, "SCALE_X": 0.707, "SCALE_Y": 0.707}],
+	308: [{"ID": 494, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1, "SCALE_X": 0.5**0.5, "SCALE_Y": 0.5**0.5}],
+	309: [{"ID": 136, "SCALE_X": 0.5**0.5, "SCALE_Y": 0.5**0.5}],
+	310: [{"ID": 133, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1, "SCALE_X": 0.5**0.5, "SCALE_Y": 0.5**0.5}],
 	311: [{"ID": 54, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1}],
-	312: [{"ID": 150, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1, "SCALE_X": 0.707, "SCALE_Y": 0.707}],
+	312: [{"ID": 150, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1, "SCALE_X": 0.5**0.5, "SCALE_Y": 0.5**0.5}],
 	313: [{"ID": 17, "X": 8, "ROTATION": -90}],
 	314: [{"ID": 17, "X": -8, "ROTATION": 90}],
 	315: [{"ID": 15, "Y": -6, "ROTATION": 180}],
@@ -392,14 +392,20 @@ object_list = {
 	342: [{"ID": 3004, "ROTATION": 180}],
 	343: [{"ID": 3005, "Y": -12}],
 	344: [{"ID": 3005, "Y": 12, "ROTATION": 180}],
-	# 345: [{"ID": 12, "Y": -30}, {"tags": ["ninja"]}], # Ninja portal, incomplete
-	346: [{"ID": 3027, "COLOR_2": 1, 51: 2, 352: 1}],
-	347: [{"ID": 3027, "COLOR_2": 2, "GROUPS": [2]}],
+	345: [{"ID": 12, "Y": -30}, {"ID": 1049, "Y": -30, 51: 5, 56: True, "SCALE_Y": 3, "don't modify": True}, {"tags": ["ninja"]}],
+	346: [{"ID": 3027, "COLOR_2": 1, 51: 2, 352: 1}, {"tags": ["teleport_orb"]}],
+	347: [{"ID": 3027, "COLOR_2": 2, "GROUPS": [2]}, {"ID": 1932, 11: True, 540: True}, {"tags": ["teleport_orb"]}],
 	348: [{"ID": 1704, "ROTATION": -90}],
 	349: [{"ID": 1751, "ROTATION": -90}],
 	350: [{"ID": 1704, "ROTATION": 90}],
 	351: [{"ID": 1751, "ROTATION": 90}],
+	352: [{"ID": 99, "NO_TOUCH": True}, {"ID": 2066, "SCALE_Y": 3, 148: 1/3, 201: True}],
 
+	353: [{"ID": 99, "NO_TOUCH": True}, {"ID": 2066, "SCALE_Y": 3, 148: 0.5, 201: True}],
+	354: [{"ID": 99, "NO_TOUCH": True}, {"ID": 2066, "SCALE_Y": 3, 148: 2/3, 201: True}],
+	355: [{"ID": 99, "NO_TOUCH": True}, {"ID": 2066, "SCALE_Y": 3, 148: 2, 201: True}],
+	356: [{"ID": 99, "NO_TOUCH": True}, {"ID": 2066, "SCALE_Y": 3, 148: 1, 201: True}],
+	358: [{"ID": 1022}],
 	359: [{"ID": 2902, "X": 30, "ROTATION": 90, 51: 3, 352: 1}],
 	360: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": 90, "GROUPS": [3]}],
 	361: [{"ID": 2902, "X": 30, "ROTATION": -90, 51: 3, 352: 1}],
@@ -407,10 +413,16 @@ object_list = {
 	367: [{"ID": 1614}],
 	368: [{"ID": 1612}],
 
+	369: [{"ID": 2066, "SCALE_Y": 3, 148: 1/3, 201: True}],
+	370: [{"ID": 2066, "SCALE_Y": 3, 148: 0.5, 201: True}],
+	371: [{"ID": 2066, "SCALE_Y": 3, 148: 2/3, 201: True}],
+	372: [{"ID": 2066, "SCALE_Y": 3, 148: 2, 201: True}],
+	373: [{"ID": 2066, "SCALE_Y": 3, 148: 1, 201: True}],
 	374: [{"ID": 2902, "X": 30, "ROTATION": 90, 51: 3, "HIDE": True, 352: 1}],
 	375: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": 90, "GROUPS": [3], "HIDE": True}],
 	376: [{"ID": 2902, "X": 30, "ROTATION": -90, 51: 3, 352: 1}],
 	377: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": -90, "GROUPS": [3], "HIDE": True}],
+	378: [{"ID": 1594, "ROTATION": 45, "COLOR_2": 3, "NO_TOUCH": True}, {"ID": 1594, 51: 1, 56: True, "HIDE": True, "don't modify": True}, {"tags": ["skull_orb"]}],
 	380: [{"ID": 84}],
 	381: [{"ID": 1022}],
 	384: [{"ID": 1613}],
@@ -426,6 +438,8 @@ object_list = {
 	505: [{"ID": 1859}],
 	506: [{"ID": 1829}],
 	507: [{"ID": 1755}],
+	508: [{"ID": 11, "X": 30, "ROTATION": -90, "HIDE": True}],
+	509: [{"ID": 10, "X": 30, "ROTATION": -90, "HIDE": True}],
 	510: [{"ID": 67, "Y": -12, "HIDE": True}],
 	511: [{"ID": 67, "Y": 12, "ROTATION": 180, "HIDE": True}]
 }
@@ -477,6 +491,16 @@ def replace_set(Type, Set):
 
 # Replaced blocks with different tags
 tag_replace = {
+	"ninja": {
+		257: [{"ID": 12, "Y": -30}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+		258: [{"ID": 13, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+		259: [{"ID": 47, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+		260: [{"ID": 111, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+		261: [{"ID": 745, "Y": -30}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+		280: [{"ID": 1331, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+		293: [{"ID": 660, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+		332: [{"ID": 1933, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+	},
 	"wave": {
 		2: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
 		6: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
@@ -485,10 +509,41 @@ tag_replace = {
 	}
 }
 
+tag_add = {
+	"ninja": [
+		{"ID": 36, "X": 15, "Y": 15, "GROUPS": [2, 5, 9], 99: True, "HIDE": True},
+		{"ID": 1049, "X": -375, "Y": 15, 51: 5},
+		{"ID": 1611, "X": -375, "Y": 45, 51: 2, 56: True, 77: 0, 80: 1, 104: True},
+		{"ID": 1611, "X": -375, "Y": 75, 51: 2, 77: 3, 80: 1, 104: True},
+		{"ID": 1817, "X": -375, "Y": 105, "GROUPS": [3], 62: True, 87: True, 77: 1, 80: 1},
+		{"ID": 1817, "X": -375, "Y": 135, "GROUPS": [4], 62: True, 87: True, 77: 0, 80: 1, 139: True},
+		{"ID": 3016, "X": 15, "Y": 45, 51: 9, 138: True, "don't repeat": True},
+		{"ID": 3604, "X": -375, "Y": 165, 51: 3, 430: gmdkit.models.prop.list.EventList([gmdkit.utils.enums.GameEvents(34)])},
+		{"ID": 3604, "X": -375, "Y": 195, 51: 4, 430: gmdkit.models.prop.list.EventList([gmdkit.utils.enums.GameEvents(1), gmdkit.utils.enums.GameEvents(2), gmdkit.utils.enums.GameEvents(3), gmdkit.utils.enums.GameEvents(4), gmdkit.utils.enums.GameEvents(5)])}
+	],
+	"skull_orb": [
+		{"ID": 899, "X": -345, "Y": 105, 7: 255, 8: 0, 9: 0, 10: 0, 23: 3},
+		{"ID": 1049, "X": -345, "Y": 135, 51: 1},
+		{"ID": 3016, "X": 15, "Y": 45, 51: 9, 138: True, "don't repeat": True},
+		{"ID": 3610, "X": 15, "Y": 15, "GROUPS": [1, 9], "HIDE": True}
+	],
+	"teleport_orb": [
+		{"ID": 899, "X": -345, "Y": 15, 7: 0, 8: 255, 9: 255, 10: 0, 23: 1},
+		{"ID": 899, "X": -345, "Y": 45, 7: 255, 8: 255, 9: 0, 10: 0, 23: 2}
+	]
+}
+
 def replace_tag(tags):
+	replace = []
+	add = []
 	for i in tags:
-		for j in tag_replace[i]:
-			object_list[j] = tag_replace[i][j]
+		if i in tag_replace:
+			for j in tag_replace[i]:
+				replace.append({j: tag_replace[i][j]})
+		if i in tag_add:
+			for j in tag_add[i]:
+				add.append(tag_add[i][j])
+	return replace, add
 
 # Add color triggers to object_list
 for i in color_list:
@@ -498,8 +553,14 @@ for i in color_list:
 		object_list[color_list[i][3]] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.OBJECT}]
 
 # Songs in Famidash, converted into IDs in Geometry Dash
+# The songs are ordered by FamiStudio
 song_list = {
-	# Main level songs
+	# Official music
+	"song_menu_theme": 584131,
+	"song_menu_theme_22": 653134,
+	# "song_emeht_unem": ?,
+	"song_menu_theme_human_capturing_mix": {"id": 658139, "offset": 6.4},
+	"song_menu_theme_e_side": {"id": 451935, "offset": 18.5},
 	"song_stereo_madness": -1,
 	"song_back_on_track": -2,
 	"song_polargeist": -3,
@@ -522,125 +583,121 @@ song_list = {
 	"song_deadlocked": -20,
 	"song_fingerdash": -21,
 	"song_dash": -22,
-
-	# Explorers is found in the E sides section
-	"song_the_challenge": 633385,
-	"song_desert_city": 10003039, 
-	"song_scheming_weasel": 10003129,
-
-	# Custom songs in main game
-	"song_retray": 557117,
-	"song_midnight": 60919,
-	"song_ground_to_space": 1481086,
-	"song_atthespeedoflight": 467339,
-	"song_just_right": 734590,
-	"song_infernoplex": 64842,
-	"song_haunted_woods": 478283,
-	"song_atthespeedoflight2": {"id": 467339, "offset": 81},
-	"song_rainbow_tylenol": 646666,
-	"song_stalemate_greif_cut": {"ID": 482872, "offset": 21.5},
-	"song_extraordinary_excitement": 1493472, # Not allowed, likely unavailable in Jukebox
-
-	# Custom songs in B sides
-	"song_stereo_madness_2": 590577,
-	"song_xenogenesis": 621136,
-	"song_snow": 559131,
-	"song_ninox": 912276,
-	# "song_somewhere_in_a_forest": ?,
-	"song_driving_by_night": 1203394,
-	"song_ultimate_destruction": 134270,
-	"song_fantasy": 785100,
-	"song_meowstuff": 578514,
-	"song_select_payment_type": 1491932,
-	# "song_pyrophoric_legacy_remix": ?,
-	# "song_cryogenic": ?,
-	"song_oceane": 755490,
-	"song_glitch_gremlin": 609313,
-	"song_check_out": 588452,
-	"song_tiny_tunes": 311087,
-	"song_fire_aura": 100727,
-	"song_chaoz_fantasy_extended": 85046,
-	# "song_win_the_race": ?,
-	# "song_meltdown": ?,
-	"song_raining_tacos": 1442889,
-	"song_infiltration": 157014,
-	"song_off_to_mars": 1540340,
-	"song_the_explorer": 840683,
-	# "song_subtle_oddities": ?,
-	"song_power_trip": 780702,
-	"song_dance_of_the_violins": 613929,
-	# "song_new_dash_city": ?,
-	"song_birdbrain": 1477293,
-	"song_against_the_odds_redux": 611689,
-	"song_tetris_remix_final": 162764,
-	"song_magic_touch": 595342, # Not allowed, requires Jukebox
-
-	# Custom songs in C sides
-	# "song_ground_to_retray": ?,/
-	# "song_c_madness": ?,
-	"song_load": 118361938,
-	"song_unity": 621134,
-	"song_hungryman_adventures": 479319, # NONG, requires Jukebox
-	"song_astronomical_expedition": 1542334, # Not allowed, likely unavailable in Jukebox
-	"song_deep_swim": 1017659,
-	"song_dastardly": 621134,
-	"song_youve_been_trolled": 477402,
-	"song_future_funk_pt1": 701013,
-
-	# Custom songs in D sides
-	"song_holography": 561616,
-	"song_problematic": 477060,
-	"song_sonic_blaster": 574484,
-	"song_death_moon": 685746,
-	"song_crackdown": 638737,
-	"song_pursuit": 658059,
-	"song_endorphins": 573010,
-	"song_every_madness": -1,
-	"song_try_this": -7, # NONG, requires Jukebox
-	"song_" + chr(104) + chr(101) + chr(108) + chr(108): 576177,
-	"song_blacklight": 455787,
-	"song_thermodynamix": 770520,
-	"song_nine_circles": {"id": 533927, "offset": 110},
-	"song_fairydust": 541786,
-	"song_stalemate": 482872,
-	"song_eighto": 624882,
-	"song_miami_hotline_vol_3": 673473,
-	"song_eon": 888042,
-	"song_atthespeedoflight3": {"id": 467339, "offset": 184},
-	"song_every_end_pt1": 99477,
-
-	# Custom songs in E sides
-	"song_infinite_power": {"id": 621144, "offset": 19.7},
-	"song_endgame": 587069,
-	"song_clutterfunk_2": 685472,
-	"song_speed_racer": 152047,
-	"song_careless": 676971,
-	"song_slash_inferno": 1382827,
-	"song_golden_haze_not_retray": 557117,
-	# "song_pyrophoric_xl": ?,
 	"song_explorers": 1183462,
-	"song_jawbreaker": 546561,
-	"song_final_battle": 598349,
-	"song_windfall": 621135,
-	"song_thermodynamix_acheron": 770520,
-	"song_fracture_wcropolix": 433947,
+	"song_desert_city": 10003039,
+	"song_scheming_weasel": 10003129, 
+	"song_the_challenge": 633385,
+	"song_practice": 535331,
+	"song_practice_original_mix": 535331,
+
+	# Custom music
+	"song_against_the_odds_redux": 611689,
+	"song_apoplexy": 1546698,
+	"song_astronomical_expedition": 1542334, # Not allowed, likely unavailable in Jukebox
+	"song_atthespeedoflight": 467339,
+	"song_atthespeedoflight2": {"id": 467339, "offset": 81},
+	"song_atthespeedoflight3": {"id": 467339, "offset": 184},
 	"song_atthespeedoflightfull": 467339,
-	"song_slow_down": 800646,
-	"song_lost": 945695, # NONG, requires Jukebox
-	"song_kratos": 1236634,
+	"song_birdbrain": 1477293,
+	"song_blacklight": 455787,
+	# "song_c_madness": ?,
+	"song_careless": 676971,
+	"song_chaoz_fantasy_extended": 85046,
+	"song_check_out": 588452,
+	"song_clownparty": 286138,
+	"song_clutterfunk_2": 685472,
+	"song_crackdown": 638737,
+	# "song_cryogenic": ?,
+	"song_dance_of_the_violins": 613929,
+	"song_dastardly": 621134,
+	"song_death_moon": 685746,
+	"song_deep_swim": 1017659,
+	"song_driving_by_night": 1203394,
+	"song_eighto": 624882,
+	"song_endgame": 587069,
+	"song_endorphins": 573010,
+	"song_eon": 888042,
+	"song_every_end_pt1": 99477,
+	"song_every_end_pt2": {"id": 99477, "offset": 233.5},
+	"song_every_madness": -1,
+	"song_extraordinary_excitement": 1493472, # Not allowed, likely unavailable in Jukebox
+	# "song_factory_time": ?,
+	"song_fairydust": 541786,
+	"song_fantasy": 785100,
+	"song_final_battle": 598349,
+	"song_fire_aura": 100727,
 	"song_flow": 1132447,
-	"song_supernova": 593661,
-
-	# Names of songs used in Huge Man
+	"song_fracture_wcropolix": 433947,
+	"song_freedom_dive": 1195409,
+	"song_future_funk_pt1": 701013,
+	"song_future_funk_pt2": {"id": 701013, "offset": 126},
+	"song_glitch_gremlin": 609313,
 	"song_golden_haze": 557117,
+	"song_golden_haze_not_retray": 557117,
+	# "song_ground_to_retray": ?,
+	"song_ground_to_space": 1481086,
+	"song_haunted_woods": 478283,
+	"song_" + chr(104) + chr(101) + chr(108) + chr(108): 576177,
+	"song_holography": 561616,
+	"song_hungryman_adventures": 479319, # NONG, requires Jukebox
+	"song_idols": 595989, # Not allowed, requires Jukebox
+	"song_infernoplex": 64842,
+	"song_infernoplex_full": 64842,
+	"song_infiltration": 157014,
+	"song_infinite_power": {"id": 621144, "offset": 19.7},
+	"song_jawbreaker": 546561,
+	"song_just_right": 734590,
 	"song_kesobomb": 755490,
-	"song_chaozfantasy": 85046,
-	"song_obika_crackdown": 638737,
-	"song_chaoz_impact": 152047,
-	"song_accelerate": 576177,
+	"song_kratos": 1236634,
+	"song_load": 118361938,
+	"song_lost": 945695, # NONG, requires Jukebox
+	"song_ludicrous_speed": 467267,
+	"song_magic_touch": 595342, # Not allowed, requires Jukebox
+	# "song_meltdown": ?,
+	"song_meowstuff": 578514,
+	"song_miami_hotline_vol_3": 673473,
+	"song_midnight": 60919,
+	# "song_new_dash_city": ?,
+	"song_nine_circles": {"id": 533927, "offset": 110},
+	"song_ninox": 912276,
+	"song_off_to_mars": 1540340,
+	"song_power_trip": 780702,
+	"song_problematic": 477060,
+	"song_pursuit": 658059,
+	# "song_pyrophoric": ?,
+	# "song_pyrophoric_legacy_remix": ?,
+	# "song_pyrophoric_xl": ?,
+	"song_rainbow_tylenol": 646666,
+	"song_raining_tacos": 1442889,
+	"song_retray": 557117,
+	"song_select_payment_type": 1491932,
+	"song_slash_inferno": 1382827,
+	"song_slow_down": 800646,
+	"song_snow": 559131,
+	# "song_somewhere_in_a_forest": ?,
+	"song_sonic_blaster": 574484,
+	"song_speed_racer": 152047,
+	"song_stalemate": 482872,
+	"song_stalemate_greif_cut": {"ID": 482872, "offset": 21.5},
+	"song_stereo_madness_2": 590577,
+	# "song_subtle_oddities": ?,
+	"song_supernova": 593661,
+	"song_supersonic": 467267,
+	"song_tetris_remix_final": 162764,
 	"song_the_angel": 888042,
+	"song_the_explorer": 840683,
+	"song_thermodynamix": 770520,
+	"song_thermodynamix_acheron": 770520,
+	"song_tiny_tunes": 311087,
+	"song_try_this": -7, # NONG, requires Jukebox
+	"song_ultimatedestruction": 134270,
+	"song_unity": 621134,
+	# "song_win_the_race": ?,
+	"song_windfall": 621135,
+	"song_xenogenesis": 621136,
+	"song_youve_been_trolled": 477402,
 
-	# Spinoff songs, reserved for future
+	# Spinoff songs
 	"song_the_seven_seas": 1271751,
 	"song_viking_arena": 1271748,
 	"song_airborne_robots": 1138716,
