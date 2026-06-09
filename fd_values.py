@@ -497,9 +497,9 @@ block_set_b = {
 	163: [{"ID": 1750, "Y": -15, "FLIP_X": True, "ROTATION": 90, "don't repeat": True}],
 	164: [{"ID": 1750, "Y": 15, "FLIP_X": True, "ROTATION": 90, "don't repeat": True}],
 	165: [{"ID": 1, "HIDE": True}, {"ID": 120}],
-	166: [{"ID": 1, "HIDE": True}, {"ID": 120}],
-	167: [{"ID": 1, "HIDE": True}, {"ID": 120}],
-	168: [{"ID": 1, "HIDE": True}, {"ID": 120}], 
+	166: [{"ID": 1, "HIDE": True}, {"ID": 120, "ROTATION": 0}],
+	167: [{"ID": 1, "HIDE": True}, {"ID": 120, "ROTATION": 0}],
+	168: [{"ID": 1, "HIDE": True}, {"ID": 120, "ROTATION": 0}], 
 
 	202: [{"ID": 120}, {"ID": 1903, "Y": 8, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
 	203: [{"ID": 120}, {"ID": 1903, "Y": -8, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
