@@ -316,14 +316,13 @@ for i in range(len(level_data)):
 
 # Change the song of the level
 if song in fd_values.song_list:
-	if fd_values.song_list[song] < 0:
+	if type(fd_values.song_list[song]) == dict:
+		level[gmdkit.mappings.lvl_prop.SONG_ID] = fd_values.song_list[song]["id"]
+		object_list.append(gmdkit.Object({gmdkit.mappings.obj_prop.ID: 1934, gmdkit.mappings.obj_prop.X: 0, gmdkit.mappings.obj_prop.Y: 15, gmdkit.mappings.obj_prop.trigger.song.SONG_ID: fd_values.song_list[song]["id"], gmdkit.mappings.obj_prop.trigger.song.VOLUME: 1, gmdkit.mappings.obj_prop.trigger.song.START: fd_values.song_list[song]["offset"] * 1000}))
+	elif fd_values.song_list[song] < 0:
 		level[gmdkit.mappings.lvl_prop.OFFICIAL_SONG_ID] = -fd_values.song_list[song] - 1
 	else:
-		if type(fd_values.song_list[song]) == dict:
-			level[gmdkit.mappings.lvl_prop.SONG_ID] = fd_values.song_list[song]["id"]
-			object_list.append(gmdkit.Object({gmdkit.mappings.obj_prop.ID: 1934, gmdkit.mappings.obj_prop.X: 0, gmdkit.mappings.obj_prop.Y: 15, gmdkit.mappings.obj_prop.trigger.song.SONG_ID: fd_values.song_list[song]["id"], gmdkit.mappings.obj_prop.trigger.song.START: fd_values.song_list[song]["offset"]}))
-		else:
-			level[gmdkit.mappings.lvl_prop.SONG_ID] = fd_values.song_list[song]
+		level[gmdkit.mappings.lvl_prop.SONG_ID] = fd_values.song_list[song]
 
 # Add gamemode and speed portals to the beginning
 if gamemode > 0:
@@ -340,9 +339,12 @@ if bg_color != "":
 if g_color != "":
 	object_list.append(gmdkit.Object({gmdkit.mappings.obj_prop.ID: 899, gmdkit.mappings.obj_prop.X: -315, gmdkit.mappings.obj_prop.Y: 15, 7: fd_values.color_list[int(g_color, 16) + 1][0], 8: fd_values.color_list[int(g_color, 16) + 1][1], 9: fd_values.color_list[int(g_color, 16) + 1][2], 10: 0, 23: gmdkit.mappings.color_id.GROUND}))
 
+# Link ground line color to object color
+object_list.append(gmdkit.Object({gmdkit.mappings.obj_prop.ID: 899, gmdkit.mappings.obj_prop.X: -315, gmdkit.mappings.obj_prop.Y: 75, 10: 0, 23: gmdkit.mappings.color_id.LINE, 50: gmdkit.mappings.color_id.OBJECT}))
+
 # Disable parallax
 if disable_parallax:
-	object_list.append(gmdkit.Object({gmdkit.mappings.obj_prop.ID: 3029, gmdkit.mappings.obj_prop.X: -315, gmdkit.mappings.obj_prop.Y: 75, gmdkit.mappings.obj_prop.trigger.change_bg.BG_ID: 10}))
+	object_list.append(gmdkit.Object({gmdkit.mappings.obj_prop.ID: 3029, gmdkit.mappings.obj_prop.X: -315, gmdkit.mappings.obj_prop.Y: 105, gmdkit.mappings.obj_prop.trigger.change_bg.BG_ID: 10}))
 
 save_name = input("GMD file to save to: ")
 if not save_name[-4:] == ".gmd":
