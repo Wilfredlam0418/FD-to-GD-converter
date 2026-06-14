@@ -288,7 +288,7 @@ def place_object(object_used, modify_coordinates, modify_properties):
 			if type(l) == int:
 				object_to_add[l] = object_used[l]
 			elif getattr(gmdkit.mappings.obj_prop, l) == 57:
-				object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = gmdkit.models.prop.list.IDList(object_used[l])
+				object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = gmdkit.models.prop.groups.IDList(object_used[l])
 			else:
 				object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = object_used[l]
 	if not ("don't repeat" in object_used and object_used["don't repeat"] and gmdkit.Object(object_to_add) in object_list):
