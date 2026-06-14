@@ -548,8 +548,8 @@ tag_add = {
 		{"ID": 1817, "X": -375, "Y": 105, "GROUPS": [3], 62: True, 87: True, 77: 1, 80: 1},
 		{"ID": 1817, "X": -375, "Y": 135, "GROUPS": [4], 62: True, 87: True, 77: 0, 80: 1, 139: True},
 		{"ID": 3016, "X": 15, "Y": 45, 51: 9, 138: True, "don't repeat": True},
-		{"ID": 3604, "X": -375, "Y": 165, 51: 3, 430: gmdkit.models.prop.list.EventList([gmdkit.utils.enums.GameEvents(34)])},
-		{"ID": 3604, "X": -375, "Y": 195, 51: 4, 430: gmdkit.models.prop.list.EventList([gmdkit.utils.enums.GameEvents(1), gmdkit.utils.enums.GameEvents(2), gmdkit.utils.enums.GameEvents(3), gmdkit.utils.enums.GameEvents(4), gmdkit.utils.enums.GameEvents(5)])}
+		{"ID": 3604, "X": -375, "Y": 165, 51: 3, 430: gmdkit.models.prop.events.EventList([gmdkit.utils.enums.GameEvents(34)])},
+		{"ID": 3604, "X": -375, "Y": 195, 51: 4, 430: gmdkit.models.prop.events.EventList([gmdkit.utils.enums.GameEvents(1), gmdkit.utils.enums.GameEvents(2), gmdkit.utils.enums.GameEvents(3), gmdkit.utils.enums.GameEvents(4), gmdkit.utils.enums.GameEvents(5)])}
 	],
 	"skull_orb": [
 		{"ID": 899, "X": -345, "Y": 105, 7: 255, 8: 0, 9: 0, 10: 0, 23: 3},
