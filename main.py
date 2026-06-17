@@ -231,11 +231,10 @@ for i in range(len(file_list)):
 							for l in k["tags"]:
 								if not l in tags:
 									tags.append(l)
-						else:
 
-							# Add 1 to coin count if object is coin
-							if k["ID"] == 1329:
-								coins += 1
+						# Add 1 to coin count if object is coin
+						elif "ID" in k and k["ID"] == 1329:
+							coins += 1
 			level_data[-1].append(width)
 			level_data[-1].append(height)
 			level_data.append([])
@@ -291,7 +290,7 @@ def place_object(object_used, modify_coordinates, modify_properties):
 				object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = gmdkit.models.prop.groups.IDList(object_used[l])
 			else:
 				object_to_add[getattr(gmdkit.mappings.obj_prop, l)] = object_used[l]
-	if not ("don't repeat" in object_used and object_used["don't repeat"] and gmdkit.Object(object_to_add) in object_list):
+	if gmdkit.mappings.obj_prop.ID in object_to_add and not ("don't repeat" in object_used and object_used["don't repeat"] and gmdkit.Object(object_to_add) in object_list):
 		object_list.append(gmdkit.Object(object_to_add))
 
 for i in tags:
@@ -309,9 +308,19 @@ for i in tags:
 for i in range(len(level_data)):
 	for j in range(len(level_data[i]) - 2):
 		if level_data[i][j] in fd_values.object_list:
+			place_saw = False
 			for k in fd_values.object_list[level_data[i][j]]:
-				object_used = copy.deepcopy(k)
-				if not "tags" in object_used:
+				if "saw" in k:
+					for l in range(k["saw"][0]):
+						for m in range(k["saw"][0]):
+							if width > j % width - k["saw"][1] + l >= 0 and height > j // width - k["saw"][2] + m >= 0 and not level_data[i][j - k["saw"][1] + l - (k["saw"][2] - m) * width] in fd_values.saw_connectable:
+								place_saw = True
+			for k in fd_values.object_list[level_data[i][j]]:
+				if not ("tags" in k or "saw" in k):
+					if place_saw:
+						object_used = copy.deepcopy(fd_values.object_list[126][0])
+					else:
+						object_used = copy.deepcopy(k)
 					place_object(object_used, True, not ("don't modify" in object_used and object_used["don't modify"]))
 
 # Change the song of the level
