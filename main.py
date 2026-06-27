@@ -318,7 +318,7 @@ for i in range(len(level_data)):
 			for k in fd_values.object_list[level_data[i][j]]:
 				if not ("tags" in k or "saw" in k):
 					if place_saw:
-						if level_data[i][j] in saw_small:
+						if level_data[i][j] in fd_values.saw_small:
 							object_used = copy.deepcopy(fd_values.saw_small[level_data[i][j]][0])
 						else:
 							object_used = copy.deepcopy(fd_values.object_list[126][0])
