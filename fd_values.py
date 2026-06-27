@@ -465,6 +465,14 @@ saw_connectable = {
 	253
 }
 
+# Resulting objects when a saw becomes small
+saw_small = {
+	117: [{"ID": 1707, "X": 7.5, "Y": -7.5, "SCALE_X": 0.5, "SCALE_Y": 0.5, "don't repeat": True}],
+	119: [{"ID": 1707, "X": -7.5, "Y": -7.5, "SCALE_X": 0.5, "SCALE_Y": 0.5, "don't repeat": True}],
+	123: [{"ID": 1707, "X": 7.5, "Y": 7.5, "SCALE_X": 0.5, "SCALE_Y": 0.5, "don't repeat": True}],
+	125: [{"ID": 1707, "X": -7.5, "Y": 7.5, "SCALE_X": 0.5, "SCALE_Y": 0.5, "don't repeat": True}],
+}
+
 # Replaced blocks in block set B
 block_set_b = {
 	33: [{"ID": 116}],
@@ -632,12 +640,14 @@ song_list = {
 	"song_dash": -22,
 	"song_explorers": 1183462,
 	"song_desert_city": 10003039,
-	"song_scheming_weasel": 10003129, 
+	"song_scheming_weasel": 10003129,
+	"song_casual_game_music_09": 10000748,
 	"song_the_challenge": 633385,
 	"song_practice": 535331,
 	"song_practice_original_mix": 535331,
 
 	# Custom music
+	"song_aether_new": 589601,
 	"song_against_the_odds_redux": 611689,
 	"song_apoplexy": 1546698,
 	"song_astronomical_expedition": 1542334, # Not allowed, likely unavailable in Jukebox
@@ -648,11 +658,13 @@ song_list = {
 	"song_birdbrain": 1477293,
 	"song_blacklight": 455787,
 	# "song_c_madness": ?,
+	# "song_carefree_victory_remix": ?,
 	"song_careless": 676971,
 	"song_chaoz_fantasy_extended": 85046,
 	"song_check_out": 588452,
-	"song_clownparty": 286138,
+	"song_clownparty_remix": 286138,
 	"song_clutterfunk_2": 685472,
+	"song_cosmic_dolphin": 482542,
 	"song_crackdown": 638737,
 	# "song_cryogenic": ?,
 	"song_dance_of_the_violins": 613929,
@@ -684,7 +696,7 @@ song_list = {
 	# "song_ground_to_retray": ?,
 	"song_ground_to_space": 1481086,
 	"song_haunted_woods": 478283,
-	"song_" + chr(104) + chr(101) + chr(108) + chr(108): 576177,
+	"song_" + chr(104) + chr(101) + chr(108) + chr(108): {"id": 576177, "offset": 16.9},
 	"song_holography": 561616,
 	"song_hungryman_adventures": 479319, # NONG, requires Jukebox
 	"song_idols": 595989, # Not allowed, requires Jukebox
@@ -721,17 +733,17 @@ song_list = {
 	"song_slash_inferno": 1382827,
 	"song_slow_down": 800646,
 	"song_snow": 559131,
+	"song_solar_wind": 493898,
 	# "song_somewhere_in_a_forest": ?,
 	"song_sonic_blaster": 574484,
 	"song_speed_racer": 152047,
 	"song_stalemate": 482872,
-	"song_stalemate_greif_cut": {"ID": 482872, "offset": 21.5},
+	"song_stalemate_greif_cut": {"id": 482872, "offset": 21.5},
 	"song_stereo_madness_2": 590577,
 	# "song_subtle_oddities": ?,
 	"song_supernova": 593661,
 	"song_supersonic": 467267,
 	"song_tetris_remix_final": 162764,
-	"song_the_angel": 888042,
 	"song_the_explorer": 840683,
 	"song_thermodynamix": 770520,
 	"song_thermodynamix_acheron": 770520,
@@ -762,7 +774,7 @@ song_list = {
 	"song_nock_em": 782870
 }
 
-# Gamemode portal IDs that exists in Geometry Dash in Famidash. Currently not used.
+# Gamemode portal IDs that exists in Geometry Dash in Famidash.
 gamemode_list = [
 	12, # Cube
 	13, # Ship
@@ -774,7 +786,7 @@ gamemode_list = [
 	1933 # Swing
 ]
 
-# Speed portal IDs in Famidash. Currently not used.
+# Speed portal IDs in Famidash.
 speed_list = [
 	201, # Blue right, 1x
 	200, # Yellow left, approx. 0.8x
