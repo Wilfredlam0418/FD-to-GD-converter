@@ -203,6 +203,12 @@ for i in range(len(file_list)):
 	if "<layer" in file_list[i]:
 		for j in range(len(file_list[i])):
 
+			# Use sprites if needed
+			if "SP" in file_list[i]:
+				use_sprites = True
+			else:
+				use_sprites = False
+
 			# Check width
 			if j < len(file_list[i]) - 3 and file_list[i][j:j + 5] == "width":
 				width = ""
@@ -244,6 +250,11 @@ for i in range(len(file_list)):
 			for j in file_list[i]:
 				if j == ",":
 					level_data[-1][-1] = int(level_data[-1][-1])
+					if not level_data[-1][-1] == 0:
+						if use_sprites:
+							level_data[-1][-1] = (level_data[-1][-1] - 1) % 256 + 257
+						else:
+							level_data[-1][-1] = (level_data[-1][-1] - 1) % 256 + 1
 					level_data[-1].append("")
 				else:
 					level_data[-1][-1] += j
