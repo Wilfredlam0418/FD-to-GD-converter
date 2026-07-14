@@ -18,6 +18,14 @@ try:
 except FileNotFoundError:
 	raise SystemExit("The file does not exist! Check the spelling of the file.")
 
+# Determine level type
+if "<properties" in file:
+	level_type = "gda"
+	print("Detected level type: Geometry Dash Advance")
+else:
+	level_type = "fd"
+	print("Detected level type: Famidash")
+
 # Turn file into list with multiple lines
 file_list = [""]
 for i in file:
