@@ -18,7 +18,8 @@ A Geometry Dash level is a GMD.
 
 To convert a Famidash level to a Geometry Dash level, you can follow the instructions below.
 
-1. Open the Terminal. You can find it by searching "Terminal".
-2. Enter `cd` followed by the path to the file. For example, if your FD to GD converter is located in the Desktop, you would enter `cd Desktop/FD-to-GD-converter-main`.
-3. Run `python main.py`. Then insert the information about the level, including the names of the TMX, JSON5 and the resulting GMD.
-4. Import the level into Geometry Dash via GDShare. Click on the magenta file button above the green list button to import the GMD file.
+1. Move the TMX and JSON5 files into the FD to GD converter file.
+2. Open the Terminal. You can find it by searching "Terminal".
+3. Enter `cd` followed by the path to the file. For example, if your FD to GD converter is located in the Desktop, you would enter `cd Desktop/FD-to-GD-converter-main`.
+4. Run `python main.py`. Then insert the information about the level, including the names of the TMX, JSON5 and the resulting GMD.
+5. Import the level into Geometry Dash via GDShare. Click on the magenta file button above the green list button to import the GMD file.
