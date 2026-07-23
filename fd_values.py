@@ -72,7 +72,7 @@ object_list = {
 	19: [{"ID": 39, "Y": -9}],
 	20: [{"ID": 21, "Y": -8, "SCALE_Y": 2}, {"ID": 39, "Y": -9}],
 	21: [{"ID": 21, "Y": 8, "ROTATION": 180, "SCALE_Y": 2}, {"ID": 39, "Y": 9, "ROTATION": 180}],
-	22: [{"ID": 39, "Y": 8}, {"ID": 1903, "Y": 8, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
+	22: [{"ID": 39, "Y": -9}, {"ID": 1903, "Y": 8, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
 	23: [{"ID": 1715, "Y": -12.5}, {"ID": 1903, "Y": 8, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
 	24: [{"ID": 1715, "Y": 12.5, "ROTATION": 180}],
 	25: [{"ID": 1715, "Y": -12.5}],
