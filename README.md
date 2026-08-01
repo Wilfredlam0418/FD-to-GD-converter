@@ -27,6 +27,6 @@ To convert a Famidash level to a Geometry Dash level, you can follow the instruc
 ## Converting multiple levels
 Converting multiple levels at once is similar to converting only one level. However, there are some extra steps.
 
-1. Create a folder named "convert" in the FD to GD converter file and move all TMX and the JSON5 files into the "convert" file.
+1. Create a folder named `convert` in the FD to GD converter file and move all TMX and the JSON5 files into the `convert` file.
 2. Follow steps 2 to 4 in the "Converting a level" section. You do not have to insert information as it will automatically convert all TMX files and use the JSON5 file.
 3. Import the levels into Geometry Dash via GDShare. Click on the magenta file button above the green list button to import the GMD files.
