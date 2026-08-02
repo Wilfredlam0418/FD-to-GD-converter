@@ -48,6 +48,12 @@ color_list = {
 	45: [47, 196, 204, 445]
 }
 
+# Objects that are used repetitively are put here, for readability and to make the object easier to edit.
+disable_ninja = {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}
+exit_static_camera = {"ID": 1914, "Y": -30, 10: 0.5, 11: True, 30: gmdkit.utils.enums.Easing(1), 36: True, 85: 2, 110: True, "SCALE_Y": 3}
+static_camera_object = {"ID": 1, "Y": -30, "GROUPS": [4], "NO_TOUCH": True, "HIDE": True, "min y": 150}
+static_camera_portal = {"ID": 1914, "Y": -30, 10: 0.5, 11: True, 30: gmdkit.utils.enums.Easing(1), 36: True, 71: 4, 85: 2, 101: gmdkit.utils.enums.TargetAxis(2), "SCALE_Y": 3}
+
 # Objects in Famidash, excluding color triggers. Numbers from 1 to 256 refer to tiles, while numbers from 257 to 512 refer to sprites.
 object_list = {
 	# Tiles
@@ -311,11 +317,11 @@ object_list = {
 	256: [{"ID": 1910, "X": -7.5, "Y": -7.5, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
 
 	# Sprites
-	257: [{"ID": 12, "Y": -30}],
-	258: [{"ID": 13, "Y": -30, 111: True}],
-	259: [{"ID": 47, "Y": -30, 111: True}],
-	260: [{"ID": 111, "Y": -30, 111: True}],
-	261: [{"ID": 745, "Y": -30}],
+	257: [{"ID": 12, "Y": -30, 111: True}, exit_static_camera],
+	258: [{"ID": 13, "Y": -30, 111: True}, static_camera_object, static_camera_portal],
+	259: [{"ID": 47, "Y": -30, 111: True}, static_camera_object, static_camera_portal],
+	260: [{"ID": 111, "Y": -30, 111: True}, static_camera_object, static_camera_portal],
+	261: [{"ID": 745, "Y": -30, 111: True}, exit_static_camera],
 	262: [{"ID": 84}],
 	263: [{"ID": 141}],
 	264: [{"ID": 1329}],
@@ -335,7 +341,7 @@ object_list = {
 	277: [{"ID": 200, "Y": -15}],
 	278: [{"ID": 201, "Y": -15}],
 	279: [{"ID": 202, "Y": -15}],
-	280: [{"ID": 1331, "Y": -30, 111: True}],
+	280: [{"ID": 1331, "Y": -30, 111: True}, static_camera_object, static_camera_portal],
 	281: [{"ID": 101, "Y": -30}],
 	282: [{"ID": 99, "Y": -30}],
 	283: [{"ID": 1329}],
@@ -344,9 +350,9 @@ object_list = {
 
 	289: [{"ID": 203, "Y": -15}],
 	290: [{"ID": 1334, "Y": -15}],
-	291: [{"ID": 286, "Y": -30, 111: True}],
-	292: [{"ID": 287, "Y": -30, 111: True}],
-	293: [{"ID": 660, "Y": -30, 111: True}, {"tags": ["wave"]}],
+	291: [{"ID": 286, "Y": -30, 111: True}, static_camera_object, static_camera_portal],
+	292: [{"ID": 287, "Y": -30, 111: True}, static_camera_object, static_camera_portal],
+	293: [{"ID": 660, "Y": -30, 111: True}, static_camera_object, static_camera_portal, {"tags": ["wave"]}],
 	294: [{"ID": 140, "Y": -13}],
 	295: [{"ID": 140, "Y": 13, "ROTATION": 180}],
 	296: [{"ID": 1022}],
@@ -383,11 +389,11 @@ object_list = {
 	329: [{"ID": 11, "Y": -30, "HIDE": True}],
 	330: [{"ID": 1764, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1}],
 	331: [{"ID": 60, "COLOR_1": gmdkit.mappings.color_id.PLAYER_1}],
-	332: [{"ID": 1933, "Y": -30, 111: True}],
+	332: [{"ID": 1933, "Y": -30, 111: True}, static_camera_object, static_camera_portal],
 	333: [{"ID": 1704, "ROTATION": -45}],
 	334: [{"ID": 1751, "ROTATION": -45}],
 	335: [{"ID": 2902, "Y": -30, 51: 1, 352: 1}],
-	336: [{"ID": 2064, "X": 20, "Y": -30, "FLIP_X": True, "GROUPS": [11]}],
+	336: [{"ID": 2064, "X": 20, "Y": -30, "FLIP_X": True, "GROUPS": [-9, 1, 11]}],
 
 	337: [{"ID": 1704, "ROTATION": 45}],
 	338: [{"ID": 1751, "ROTATION": 45}],
@@ -397,9 +403,9 @@ object_list = {
 	342: [{"ID": 3004, "ROTATION": 180}],
 	343: [{"ID": 3005, "Y": -12}],
 	344: [{"ID": 3005, "Y": 12, "ROTATION": 180}],
-	345: [{"ID": 12, "Y": -30}, {"ID": 1049, "Y": -30, 51: 5, 56: True, "SCALE_Y": 3, "don't modify": True}, {"tags": ["ninja"]}],
+	345: [{"ID": 12, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, 56: True, "SCALE_Y": 3, "don't modify": True}, exit_static_camera, {"tags": ["ninja"]}],
 	346: [{"ID": 3027, "COLOR_2": 1, 51: 2, 352: 1}, {"tags": ["teleport_orb"]}],
-	347: [{"ID": 3027, "COLOR_2": 2, "GROUPS": [2]}, {"ID": 1932, 11: True, 540: True}, {"tags": ["teleport_orb"]}],
+	347: [{"ID": 3027, "COLOR_2": 2, "GROUPS": [-8, 2, 12]}, {"ID": 1932, 11: True, 540: True}, {"tags": ["teleport_orb"]}],
 	348: [{"ID": 1704, "ROTATION": -90}],
 	349: [{"ID": 1751, "ROTATION": -90}],
 	350: [{"ID": 1704, "ROTATION": 90}],
@@ -412,9 +418,9 @@ object_list = {
 	356: [{"ID": 99, "NO_TOUCH": True}, {"ID": 2066, "SCALE_Y": 3, 148: 1, 201: True}],
 	358: [{"ID": 1022}],
 	359: [{"ID": 2902, "X": 30, "ROTATION": 90, 51: 3, 352: 1}],
-	360: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": 90, "GROUPS": [3]}],
+	360: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": 90, "GROUPS": [-7, 3, 13]}],
 	361: [{"ID": 2902, "X": 30, "ROTATION": -90, 51: 3, 352: 1}],
-	362: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": -90, "GROUPS": [3]}],
+	362: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": -90, "GROUPS": [-7, 3, 13]}],
 	367: [{"ID": 1614}],
 	368: [{"ID": 1612, "X": -300}],
 
@@ -424,13 +430,16 @@ object_list = {
 	372: [{"ID": 2066, "X": -300, 148: 2}],
 	373: [{"ID": 2066, "X": -300, 148: 1}],
 	374: [{"ID": 2902, "X": 30, "ROTATION": 90, 51: 3, "HIDE": True, 352: 1}],
-	375: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": 90, "GROUPS": [3], "HIDE": True}],
+	375: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": 90, "GROUPS": [-7, 3, 13], "HIDE": True}],
 	376: [{"ID": 2902, "X": 30, "ROTATION": -90, 51: 3, "HIDE": True, 352: 1}],
-	377: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": -90, "GROUPS": [3], "HIDE": True}],
-	378: [{"ID": 1594, "ROTATION": 45, "COLOR_2": 3, "NO_TOUCH": True}, {"ID": 1594, 51: 1, 56: True, "HIDE": True, "don't modify": True}, {"tags": ["skull_orb"]}],
+	377: [{"ID": 2064, "X": 30, "FLIP_X": True, "ROTATION": -90, "GROUPS": [-7, 3, 13], "HIDE": True}],
+	378: [{"ID": 1594, "ROTATION": 45, "COLOR_2": 3, "NO_TOUCH": True}, {"ID": 1594, 51: 1, 56: True, "HIDE": True, "don't modify": True}, {"tags": ["death"]}],
 	380: [{"ID": 84}],
 	381: [{"ID": 1022}],
 	384: [{"ID": 1613, "X": -300}],
+
+	478: [{"ID": 1914, "X": -300, 10: 0.5, 30: gmdkit.utils.enums.Easing(1), 85: 2}],
+	480: [{"ID": 1912, "X": -300, 10: 1.5625, 51: 6, "don't modify": True}, {"tags": ["death"]}],
 
 	497: [{"ID": 32, "X": -300}],
 	498: [{"ID": 33, "X": -300}],
@@ -547,14 +556,14 @@ def replace_set(Type, Set):
 # Replaced blocks with different tags
 tag_replace = {
 	"ninja": {
-		257: [{"ID": 12, "Y": -30}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
-		258: [{"ID": 13, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
-		259: [{"ID": 47, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
-		260: [{"ID": 111, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
-		261: [{"ID": 745, "Y": -30}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
-		280: [{"ID": 1331, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
-		293: [{"ID": 660, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
-		332: [{"ID": 1933, "Y": -30, 111: True}, {"ID": 1049, "Y": -30, 51: 5, "SCALE_Y": 3, "don't modify": True}],
+		257: [{"ID": 12, "Y": -30}, disable_ninja, exit_static_camera],
+		258: [{"ID": 13, "Y": -30, 111: True}, disable_ninja, static_camera_object, static_camera_portal],
+		259: [{"ID": 47, "Y": -30, 111: True}, disable_ninja, static_camera_object, static_camera_portal],
+		260: [{"ID": 111, "Y": -30, 111: True}, disable_ninja, static_camera_object, static_camera_portal],
+		261: [{"ID": 745, "Y": -30}, disable_ninja, exit_static_camera],
+		280: [{"ID": 1331, "Y": -30, 111: True}, disable_ninja, static_camera_object, static_camera_portal],
+		293: [{"ID": 660, "Y": -30, 111: True}, disable_ninja, static_camera_object, static_camera_portal],
+		332: [{"ID": 1933, "Y": -30, 111: True}, disable_ninja, static_camera_object, static_camera_portal],
 	},
 	"wave": {
 		2: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}, {"ID": 1755}],
@@ -576,9 +585,10 @@ tag_add = {
 		{"ID": 3604, "X": -375, "Y": 165, 51: 3, 430: gmdkit.models.prop.events.EventList([gmdkit.utils.enums.GameEvents(34)])},
 		{"ID": 3604, "X": -375, "Y": 195, 51: 4, 430: gmdkit.models.prop.events.EventList([gmdkit.utils.enums.GameEvents(1), gmdkit.utils.enums.GameEvents(2), gmdkit.utils.enums.GameEvents(3), gmdkit.utils.enums.GameEvents(4), gmdkit.utils.enums.GameEvents(5)])}
 	],
-	"skull_orb": [
+	"death": [
 		{"ID": 899, "X": -345, "Y": 105, 7: 255, 8: 0, 9: 0, 10: 0, 23: 3},
 		{"ID": 1049, "X": -345, "Y": 135, 51: 1},
+		{"ID": 1049, "X": -345, "Y": 165, 51: 1, 56: True, "GROUPS": [6], 62: True},
 		{"ID": 3016, "X": 15, "Y": 45, 51: 9, 138: True, "don't repeat": True},
 		{"ID": 3610, "X": 15, "Y": 15, "GROUPS": [1, 9], "HIDE": True}
 	],
