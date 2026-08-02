@@ -774,7 +774,7 @@ song_list = {
 	"song_stalemate_greif_cut": {"id": 482872, "offset": 21.5},
 	"song_stereo_madness_2": 590577,
 	# "song_subtle_oddities": ?,
-	"song_supernova": 593661,
+	"song_supernova": {"id": 593661, "offset": 101},
 	"song_supersonic": 467267,
 	"song_tetris_remix_final": 162764,
 	"song_the_explorer": 840683,
