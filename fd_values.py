@@ -452,8 +452,8 @@ object_list_unchanged = {
 	505: [{"ID": 1859}],
 	506: [{"ID": 1829}],
 	507: [{"ID": 1755}],
-	508: [{"ID": 11, "X": 30, "ROTATION": -90, "HIDE": True}],
-	509: [{"ID": 10, "X": 30, "ROTATION": -90, "HIDE": True}],
+	508: [{"ID": 11, "ROTATION": -90, "HIDE": True}],
+	509: [{"ID": 10, "ROTATION": -90, "HIDE": True}],
 	510: [{"ID": 67, "Y": -12, "HIDE": True}],
 	511: [{"ID": 67, "Y": 12, "ROTATION": 180, "HIDE": True}]
 }
