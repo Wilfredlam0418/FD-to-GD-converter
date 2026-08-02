@@ -60,7 +60,7 @@ object_list_unchanged = {
 	2: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}],
 	3: [{"ID": 1, "HIDE": True}, {"ID": 211, "COLOR_1": gmdkit.mappings.color_id.GROUND}],
 	4: [{"ID": 1903, "Y": -8, "COLOR_2": gmdkit.mappings.color_id.BLACK}],
-	5: [{"ID": 1707, "Y": -15, "don't repeat": True}],
+	5: [{"ID": 1707, "Y": 15, "don't repeat": True}],
 	6: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}],
 	7: [{"ID": 1, "HIDE": True}, {"ID": 211, "COLOR_1": gmdkit.mappings.color_id.GROUND}],
 	8: [{"ID": 1, "COLOR_1": gmdkit.mappings.color_id.BLACK, "NO_TOUCH": True}],
