@@ -17,6 +17,8 @@ color_list = {
 	11: [0, 57, 0],
 	12: [0, 56, 33],
 	13: [0, 50, 102],
+	14: [0, 0, 0, -1],
+	15: [0, 0, 0, -1],
 	16: [0, 0, 0, 448],
 
 	17: [177, 177, 175],
@@ -32,6 +34,9 @@ color_list = {
 	27: [0, 119, 0],
 	28: [0, 116, 60],
 	29: [0, 109, 153],
+	30: [0, 0, 0, -1],
+	31: [0, 0, 0, -1],
+	32: [0, 0, 0, -1],
 
 	33: [255, 255, 255, 433],
 	34: [77, 173, 255, 446],
@@ -45,7 +50,27 @@ color_list = {
 	42: [127, 190, 0, 442],
 	43: [71, 200, 32, 443],
 	44: [44, 200, 112, 444],
-	45: [47, 196, 204, 445]
+	45: [47, 196, 204, 445],
+	46: [0, 0, 0, -1],
+	47: [0, 0, 0, -1],
+	48: [78, 80, 72, -1],
+
+	49: [255, 255, 255, -1],
+	50: [210, 234, 255, -1],
+	51: [226, 226, 255, -1],
+	52: [233, 216, 255, -1],
+	53: [245, 210, 255, -1],
+	54: [248, 217, 234, -1],
+	55: [250, 222, 185, -1],
+	56: [249, 232, 155, -1],
+	57: [243, 242, 140, -1],
+	58: [211, 250, 145, -1],
+	59: [184, 252, 168, -1],
+	60: [174, 250, 202, -1],
+	61: [202, 243, 243, -1],
+	62: [0, 0, 0, -1],
+	63: [0, 0, 0, -1],
+	64: [190, 192, 184, -1]
 }
 
 # Objects that are used repetitively are put here, for readability and to make the object easier to edit.
@@ -606,10 +631,11 @@ def replace_tag(tags):
 
 # Add color triggers to object list
 for i in color_list:
-	object_list_unchanged[i + 384] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.BACKGROUND}]
-	object_list_unchanged[i + 448] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.GROUND}]
-	if len(color_list[i]) > 3:
-		object_list_unchanged[color_list[i][3]] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.OBJECT}]
+	if not (len(color_list[i]) > 3 and color_list[i][3] == -1):
+		object_list_unchanged[i + 384] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.BACKGROUND}]
+		object_list_unchanged[i + 448] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.GROUND}]
+		if len(color_list[i]) > 3:
+			object_list_unchanged[color_list[i][3]] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.OBJECT}]
 
 # Songs in Famidash, converted into IDs in Geometry Dash
 # The songs are ordered by FamiStudio
@@ -678,6 +704,7 @@ song_list = {
 	"song_driving_by_night": 1203394,
 	"song_eighto": 624882,
 	"song_endgame": 587069,
+	"song_endgame_full": 587069,
 	"song_endorphins": 573010,
 	"song_eon": 888042,
 	"song_every_end_pt1": 99477,
@@ -695,7 +722,7 @@ song_list = {
 	"song_future_funk_pt1": 701013,
 	"song_future_funk_pt2": {"id": 701013, "offset": 126},
 	"song_glitch_gremlin": 609313,
-	"song_golden_haze": 557117,
+	"song_glory": 714579,
 	"song_golden_haze_not_retray": 557117,
 	# "song_ground_to_retray": ?,
 	"song_ground_to_space": 1481086,
@@ -716,6 +743,7 @@ song_list = {
 	"song_lost": 945695, # NONG, requires Jukebox
 	"song_ludicrous_speed": 467267,
 	"song_magic_touch": 595342, # Not allowed, requires Jukebox
+	"song_mario_kart_7_rainbow_road_remix": 577268,
 	# "song_meltdown": ?,
 	"song_meowstuff": 578514,
 	"song_miami_hotline_vol_3": 673473,
@@ -724,6 +752,7 @@ song_list = {
 	"song_nine_circles": {"id": 533927, "offset": 110},
 	"song_ninox": 912276,
 	"song_off_to_mars": 1540340,
+	"song_operation_evolution": 109650,
 	"song_power_trip": 780702,
 	"song_problematic": 477060,
 	"song_pursuit": 658059,
