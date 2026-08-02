@@ -438,7 +438,7 @@ object_list_unchanged = {
 	381: [{"ID": 1022}],
 	384: [{"ID": 1613, "X": -300}],
 
-	478: [{"ID": 1914, "X": -300, 10: 0.5, 30: gmdkit.utils.enums.Easing(1), 85: 2}],
+	478: [{"ID": 1914, "X": -300, 10: 0.5, 30: gmdkit.utils.enums.Easing(1), 85: 2, 110: True}],
 	480: [{"ID": 1912, "X": -300, 10: 1.5625, 51: 6, "don't modify": True}, {"tags": ["death"]}],
 
 	497: [{"ID": 32, "X": -300}],
