@@ -55,7 +55,7 @@ static_camera_object = {"ID": 1, "Y": -30, "GROUPS": [4], "NO_TOUCH": True, "HID
 static_camera_portal = {"ID": 1914, "Y": -30, 10: 0.5, 11: True, 30: gmdkit.utils.enums.Easing(1), 36: True, 71: 4, 85: 2, 101: gmdkit.utils.enums.TargetAxis(2), "SCALE_Y": 3}
 
 # Objects in Famidash, excluding color triggers. Numbers from 1 to 256 refer to tiles, while numbers from 257 to 512 refer to sprites.
-object_list = {
+object_list_unchanged = {
 	# Tiles
 	2: [{"ID": 208, "ROTATION": 180, "COLOR_2": gmdkit.mappings.color_id.GROUND}],
 	3: [{"ID": 1, "HIDE": True}, {"ID": 211, "COLOR_1": gmdkit.mappings.color_id.GROUND}],
@@ -547,12 +547,6 @@ block_set_b = {
 	254: [{"ID": 118, "ROTATION": 90}]
 }
 
-def replace_set(Type, Set):
-	if Type == "block":
-		if Set == "B":
-			for i in block_set_b:
-				object_list[i] = block_set_b[i]
-
 # Replaced blocks with different tags
 tag_replace = {
 	"ninja": {
@@ -610,12 +604,12 @@ def replace_tag(tags):
 				add.append(tag_add[i][j])
 	return replace, add
 
-# Add color triggers to object_list
+# Add color triggers to object list
 for i in color_list:
-	object_list[i + 384] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.BACKGROUND}]
-	object_list[i + 448] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.GROUND}]
+	object_list_unchanged[i + 384] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.BACKGROUND}]
+	object_list_unchanged[i + 448] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.GROUND}]
 	if len(color_list[i]) > 3:
-		object_list[color_list[i][3]] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.OBJECT}]
+		object_list_unchanged[color_list[i][3]] = [{"ID": 899, "X": -300, 7: color_list[i][0], 8: color_list[i][1], 9: color_list[i][2], 10: 0, 23: gmdkit.mappings.color_id.OBJECT}]
 
 # Songs in Famidash, converted into IDs in Geometry Dash
 # The songs are ordered by FamiStudio
