@@ -227,7 +227,12 @@ def convert_level(file, file_name, meta):
 		offset_multiplier = 1
 		line += 1
 	
-	fd_values.replace_set("block", block_set)
+	fd_values.object_list = copy.deepcopy(fd_values.object_list_unchanged)
+	
+	# Change blocks to set B
+	if block_set == "B":
+		for i in fd_values.block_set_b:
+			fd_values.object_list[i] = fd_values.block_set_b[i]
 	
 	# Load empty level
 	level = gmdkit.Level.from_file("empty_level.gmd")
