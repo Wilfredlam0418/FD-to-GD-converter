@@ -310,10 +310,13 @@ def convert_level(file, file_name, meta):
 	# Place object function
 	def place_object(object_used, modify_coordinates, modify_properties):
 		if modify_coordinates:
+	
+			# Add X and Y values if missing
 			if not "X" in object_used:
 				object_used["X"] = 0
 			if not "Y" in object_used:
 				object_used["Y"] = 0
+	
 			object_used["X"] += float(j % level_data[i][-2] * 30 + 15)
 			object_used["Y"] += float((level_data[i][-1] - j // level_data[i][-2]) * 30 - 15)
 			if level_data[i][j] > 256:
@@ -322,19 +325,24 @@ def convert_level(file, file_name, meta):
 						object_used["X"] += l["ox"] * 15 / 8
 						object_used["Y"] -= l["oy"] * 15 / 8
 	
+			# Minimum Y value
+			if "min y" in object_used and object_used["Y"] < object_used["min y"]:
+				object_used["Y"] = object_used["min y"]
+	
 		# Turn string properties into number properties
 		object_to_add = {}
 		for l in object_used:
-			if not (l == "don't repeat" or l == "don't modify"):
+			if not (l == "don't repeat" or l == "don't modify" or l == "min y"):
 	
 				# Add X position times 10 if property is group
 				if modify_properties:
-					if type(l) == str and getattr(gmdkit.mappings.obj_prop, l) in {51, 57} or l in {51, 57}:
+					if type(l) == str and getattr(gmdkit.mappings.obj_prop, l) in {51, 57, 71} or l in {51, 57, 71}:
 						if type(object_used[l]) == list:
 							for m in range(len(object_used[l])):
 								object_used[l][m] += j % width * 10
 						else:
 							object_used[l] += j % width * 10
+	
 	
 				if type(l) == int:
 					object_to_add[l] = object_used[l]
